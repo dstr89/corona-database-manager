@@ -1,4 +1,4 @@
-Corona Advanced Logging
+Corona Database Manager
 =====================
 
 ##Usage##
@@ -47,8 +47,11 @@ end
 Used for opening / closing database connection and executing queries.
 
 ```lua
+local log = require("utility.log")
+local dba = require("database.dba")
+-- Execute update
 dba:exec("UPDATE params SET VALUE = '55' WHERE name = 'application.version'")
-
+-- Get rows
 for row in dba:nrows("SELECT * FROM params WHERE name = 'application.version'") do
 	log:log("Application version", row.value)
 end
@@ -73,8 +76,8 @@ All parameters defined in params XML will be inserted with default values if the
 <?xml version="1.0"?>
 <params>
 	<!-- Parameters and default values -->
-	<param name="application.version" value="1.0" description=""/>
-	<param name="database.version" value="1.0" description=""/>
+	<param name="application.version" value="1" description=""/>
+	<param name="database.version" value="1" description=""/>
 </params>
 ```
 
@@ -117,7 +120,7 @@ function table:update(name, value)
 end
 ```
 
-##Notes##
+##Logging##
 
 Each SQL query is logged into console and into a log file located in Documents Directory.
 More about CoronaAdvancedLogging can be found here: https://github.com/promptcode/CoronaAdvancedLogging

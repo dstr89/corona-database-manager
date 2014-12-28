@@ -2,7 +2,7 @@
 <params>
 
 	<!-- Parameters and default values -->
-	<param name="application.version" value="1.0" description=""/>
-	<param name="database.version" value="1.0" description=""/>
+	<param name="application.version" value="1" description=""/>
+	<param name="database.version" value="1" description=""/>
 
 </params>
