@@ -1,0 +1,86 @@
+-- Supported values for orientation:
+-- portrait, portraitUpsideDown, landscapeLeft, landscapeRight
+
+settings = {
+	
+	orientation = {
+          default = "portrait",
+          supported = {
+               "portrait", "portraitUpsideDown"
+          }
+    },
+	
+	build = {
+        --neverStripDebugInfo = true
+    },
+
+    plugins =
+    {
+        ["plugin.google.play.services"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+        ["CoronaProvider.gameNetwork.google"] =
+        {
+            publisherId = "com.coronalabs",
+            supportedPlatforms = { android=true },
+        },
+        ["CoronaProvider.gameNetwork.apple"] =
+        {
+            publisherId = "com.coronalabs",
+            supportedPlatforms = { iphone=true, ["iphone-sim"]=true },
+        },
+    },   
+	
+	iphone = {
+		plist = {
+			UIStatusBarHidden = true,
+			UIPrerenderedIcon = true, -- set to false for "shine" overlay
+			UIApplicationExitsOnSuspend = false,
+			CFBundleIdentifier = "com.roosterbee.quglitza",
+			CFBundleIconFile = "Icon.png",
+			CFBundleDisplayName = "Quglitza",
+            UISupportedInterfaceOrientations =
+            {
+                "UIInterfaceOrientationPortrait",
+                "UIInterfaceOrientationPortraitUpsideDown"
+            },
+            CFBundleIconFiles = {
+                    "Icon.png", 
+					"Icon@2x.png", 
+					"Icon-40.png",
+					"Icon-40@2x.png",
+					"Icon-60.png",
+					"Icon-60@2x.png",
+					"Icon-72.png",
+					"Icon-72@2x.png",
+					"Icon-76.png",
+					"Icon-76@2x.png",
+					"Icon-Small-50.png", 
+				    "Icon-Small-50@2x.png",
+					"Icon-Small.png", 
+					"Icon-Small@2x.png"
+             },
+			UIAppFonts = 
+			{
+					"Lato Black Italic.ttf",
+					"Lato Black.ttf",
+					"Lato Italic.ttf",
+					"Rubik One Regular.ttf",
+			}
+		},
+	},
+	
+	android = {
+		usesPermissions =
+		{
+			"android.permission.INTERNET",
+			"android.permission.WRITE_EXTERNAL_STORAGE",
+			"android.permission.ACCESS_NETWORK_STATE",
+			"android.permission.VIBRATE",
+			"com.android.vending.BILLING"
+		},
+		googlePlayGamesAppId = "494363440922",
+	},
+
+}
