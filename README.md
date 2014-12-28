@@ -3,7 +3,7 @@ Corona Database Manager
 
 ##Usage##
 
-Used for handling database connection, creating tables, table queries etc.
+Used for handling database connection, creating tables, executing queries, etc.
 
 This module uses two other modules: 
 * CoronaAdvancedLogging module (https://github.com/promptcode/CoronaAdvancedLogging)
