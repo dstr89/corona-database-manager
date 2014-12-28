@@ -24,7 +24,7 @@ local function main()
 
 	-- Get parameter
 	local p1 = params:get("application.version")
-	log:log("Application verson", p1)
+	log:log("Application version", p1)
 
 	-- Update parametar
 	local incremented = tonumber(p1) + 1
@@ -32,7 +32,7 @@ local function main()
 
 	-- Get parameter again
 	local p2 = params:get("application.version")
-	log:log("Application verson", p2)	
+	log:log("Application version", p2)	
 
 end
 

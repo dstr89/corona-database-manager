@@ -5,6 +5,10 @@ Corona Advanced Logging
 
 Used for handling database connection, creating tables, table queries etc.
 
+This module uses two other modules: 
+* CoronaAdvancedLogging module (https://github.com/promptcode/CoronaAdvancedLogging)
+* XML parser module by Alexander Makeev (http://lua-users.org/wiki/LuaXml)
+
 ###main.lua###
 
 Check out the sample Corona project in this repository. Quick preview:
@@ -52,24 +56,33 @@ end
 
 ##tables.xml##
 
-All tables defined in tables XML file will be created if they do not exist
+All tables defined in tables XML file will be created if they do not exist.
 
 ```xml
 <?xml version="1.0"?>
 <tables>
-	<!-- Core tables -->
 	<table name="params" class="database.tables.params"/>
 </tables>
 ```
 
+##params.xml##
+
+All parameters defined in params XML will be inserted with default values if they do not exist.
+
+```xml
+<?xml version="1.0"?>
+<params>
+	<!-- Parameters and default values -->
+	<param name="application.version" value="1.0" description=""/>
+	<param name="database.version" value="1.0" description=""/>
+</params>
+```
+
 ##params.lua##
 
-Params is an ORM-like database table module. You can add your own table in the same way. Each table should have a create function and other functions used for working with the specific database table.
+Params is an ORM-like database table adapter. You can add your own adapters in the same way. Each adapter should have a create function and other functions used for working with the specific database table.
 
 ```lua
--------------------------------------------------
--- PUBLIC FUNCTIONS
--------------------------------------------------
 -- Create table
 function table:create()
 	-- Create table if it does not exist
@@ -104,16 +117,9 @@ function table:update(name, value)
 end
 ```
 
-##params.xml##
+##Notes##
 
-All parameters defined in params XML will be inserted with default values if they do not exist
+Each SQL query is logged into console and into a log file located in Documents Directory.
+More about CoronaAdvancedLogging can be found here: https://github.com/promptcode/CoronaAdvancedLogging
 
-```xml
-<?xml version="1.0"?>
-<params>
-	<!-- Parameters and default values -->
-	<param name="application.version" value="1.0" description=""/>
-	<param name="database.version" value="1.0" description=""/>
-</params>
-```
 
